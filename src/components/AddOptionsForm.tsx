@@ -11,15 +11,21 @@ import { ErrorMessage } from "@hookform/error-message";
 
 type OptionForm = { option: "string" };
 
-const AddOptionsForm = () => {
+type Props = {
+  addNewOption: (text: string) => void;
+};
+
+const AddOptionsForm = ({ addNewOption }: Props) => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm<OptionForm>();
 
   const onSubmit = (data: OptionForm) => {
-    console.log(data);
+    addNewOption(data.option);
+    reset();
   };
   return (
     <form
@@ -44,7 +50,7 @@ const AddOptionsForm = () => {
           width={"6vw"}
           type="submit"
         >
-          Submit
+          Add
         </Button>
       </div>
       <ErrorMessage
