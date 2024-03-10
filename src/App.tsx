@@ -4,6 +4,7 @@ import Option from "./components/Option";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { OptionType } from "./type";
+import Stepper from "./elements/Stepper";
 
 function App() {
   const [options, setOptions] = useState<OptionType[]>([]);
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="border h-screen w-full">
       <h5 className="font-madimi-one text-3xl">Option Picker</h5>
+      <Stepper activeStep={1} />
       <AddOptionsForm addNewOption={addNewOption} />
       <SimpleGrid
         columns={3}
