@@ -18,3 +18,5 @@ src/assets/introduce-image.jpg
 .env.local
 
 /dist
+functions/ui-debug.log
+functions/firebase-debug.log
